@@ -40,9 +40,6 @@ const App = () => {
 
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
-  const hasFeedback =
-    feedback.good !== 0 || feedback.neutral !== 0 || feedback.bad !== 0;
-
   return (
     <>
       <Description />
@@ -51,7 +48,7 @@ const App = () => {
         totalFeedback={totalFeedback}
         resetFeedback={resetFeedback}
       />
-      {!hasFeedback ? (
+      {!totalFeedback ? (
         <Notification />
       ) : (
         <Feedback
@@ -59,7 +56,6 @@ const App = () => {
           neutral={feedback.neutral}
           bad={feedback.bad}
           total={totalFeedback}
-          hasFeedback={hasFeedback}
           resetFeedback={resetFeedback}
           positiveFeedback={positiveFeedback}
         />
